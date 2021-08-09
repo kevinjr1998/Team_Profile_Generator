@@ -1,3 +1,22 @@
-class Employee = {
-    
+
+class Employee {
+    constructor(name, id, email){
+        this.name = name;
+        this.email = email;
+        this.id = id;
+    }
+
+    getName(){
+        return this.name;
+    }
+
+    getId(){
+        return this.idid;
+    }
+
+    getEmail(){
+        return this.email
+    }
 }
+
+module.exports = Employee;
