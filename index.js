@@ -30,12 +30,12 @@ function jobRole() {
       type: "list",
       name: "role",
       message: "Enter Job Role",
-      choices: ["Employee", "Engineer", "Intern"],
+      choices: ["Finish Building Team", "Engineer", "Intern"],
     })
     .then((answer) => {
       switch (answer) {
-        case "Employee":
-          createEmployee();
+        case "Finish Building Team":
+          finishTeamBuilding();
           break;
         case "Engineer":
           createEngineer();
@@ -43,21 +43,55 @@ function jobRole() {
         case "Intern":
           createIntern();
           break;
-        default:
-          createEmployee();
       }
     });
 }
 
-
+function createEngineer() {
+    inquirer.prompt([
+        {
+          type: "input",
+          message: "Name of Manger?",
+          name: "managerName",
+        },
+        {
+          type: "input",
+          message: "Manager ID?",
+          name: "managerID",
+        },
+        {
+          type: "input",
+          message: "Manger Email?",
+          name: "managerEmail",
+        },
+      ])
+}
 
 function init() {
-  inquirer.prompt(managerQuestions).then((answers) => {
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "Name of Manger?",
+      name: "managerName",
+    },
+    {
+      type: "input",
+      message: "Manager ID?",
+      name: "managerID",
+    },
+    {
+      type: "input",
+      message: "Manger Email?",
+      name: "managerEmail",
+    },
+  ])
+  .then((answers) => {
     const manager = new Manager(
       answers.managerName,
       answers.managerID,
       answer.managerEmail
     );
+    
     templateHelper(manager);
 
     jobRole();
