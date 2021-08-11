@@ -2,27 +2,27 @@ const Employee = require("./classes/Employee");
 const Manager = require("./classes/Manager");
 const Engineer = require("./classes/Engineer");
 const Intern = require("./classes/Intern");
-
-const Inquirer = require("Inquirer");
+const temp = require("./src/templateHelper.js");
 const inquirer = require("Inquirer");
 
-const managerQuestions = [
-  {
-    type: "input",
-    message: "Name of Manger?",
-    name: "managerName",
-  },
-  {
-    type: "input",
-    message: "Manager ID?",
-    name: "managerID",
-  },
-  {
-    type: "input",
-    message: "Manger Email?",
-    name: "managerEmail",
-  },
-];
+
+// const managerQuestions = [
+//   {
+//     type: "input",
+//     message: "Name of Manger?",
+//     name: "managerName",
+//   },
+//   {
+//     type: "input",
+//     message: "Manager ID?",
+//     name: "managerID",
+//   },
+//   {
+//     type: "input",
+//     message: "Manger Email?",
+//     name: "managerEmail",
+//   },
+// ];
 
 function jobRole() {
   inquirer
@@ -33,7 +33,7 @@ function jobRole() {
       choices: ["Finish Building Team", "Engineer", "Intern"],
     })
     .then((answer) => {
-      switch (answer) {
+      switch (answer.role) {
         case "Finish Building Team":
           finishTeamBuilding();
           break;
@@ -44,6 +44,7 @@ function jobRole() {
           createIntern();
           break;
       }
+      
     });
 }
 
@@ -51,23 +52,79 @@ function createEngineer() {
     inquirer.prompt([
         {
           type: "input",
-          message: "Name of Manger?",
-          name: "managerName",
+          message: "Name of Engineer?",
+          name: "name",
         },
         {
           type: "input",
-          message: "Manager ID?",
-          name: "managerID",
+          message: "Engineer ID?",
+          name: "empID",
         },
         {
           type: "input",
-          message: "Manger Email?",
-          name: "managerEmail",
+          message: "Engineer Email?",
+          name: "email",
         },
+        {
+            type: "input",
+            message: "Engineer GitHub?",
+            name: "gitHub",
+          }
       ])
+      .then((answers) => {
+          const engineer = new Engineer(answers.name, answers.empID, answers.email, answers.gitHub);
+
+
+          temp.templateEngineer(engineer);
+          console.log("\nJob Saved \n");
+          jobRole();
+          
+      })
+}
+
+function createIntern() {
+  inquirer.prompt([
+      {
+        type: "input",
+        message: "Name of Intern?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "Intern ID?",
+        name: "empID",
+      },
+      {
+        type: "input",
+        message: "Intern Email?",
+        name: "email",
+      },
+      {
+          type: "input",
+          message: "Intern School ?",
+          name: "school",
+        }
+    ])
+    .then((answers) => {
+        const intern = new Intern(answers.name, answers.empID, answers.email, answers.school);
+        temp.templateIntern(intern);
+        console.log("\nJob Saved \n");
+
+        jobRole();
+        
+
+    })
+}
+
+function finishTeamBuilding(){
+  temp.templateEnd();
+  console.log("\Team Saved \n");
+  return;
 }
 
 function init() {
+  temp.templateStart();
+
   inquirer.prompt([
     {
       type: "input",
@@ -84,17 +141,18 @@ function init() {
       message: "Manger Email?",
       name: "managerEmail",
     },
+    {
+      type: "input",
+      message: "Office Number?",
+      name: "officeNumber",
+    },
   ])
   .then((answers) => {
-    const manager = new Manager(
-      answers.managerName,
-      answers.managerID,
-      answer.managerEmail
-    );
-    
-    templateHelper(manager);
-
+    const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.officeNumber);
+    temp.templateManager(manager);
+    console.log("\nJob Saved \n");
     jobRole();
+    
   });
 }
 

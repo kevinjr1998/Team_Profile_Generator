@@ -2,8 +2,9 @@ const { moduleExpression } = require("@babel/types");
 const Employee = require("./Employee");
 
 class Engineer extends Employee{
-    super(name, id, email);
-    constructor(gitHub){
+    
+    constructor(empName, empID, email, gitHub){
+        super(empName, empID, email);
         this.gitHub = gitHub;
     }
 
