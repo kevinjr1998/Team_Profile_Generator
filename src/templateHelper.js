@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 function templateStart(){
-    fs.appendFile("index.html", `<!DOCTYPE html>
+    fs.appendFile("./dist/index.html", `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -20,7 +20,7 @@ function templateStart(){
     )}
 
 function templateManager(manager){
-    fs.appendFile("index.html", `<div class="d-flex justify-content-center container manager"> 
+    fs.appendFile("./dist/index.html", `<div class="d-flex justify-content-center container manager"> 
 
    <div class="card m-2" style="width: 36rem;">
        <h5 class="card-title"> ${manager.getName()}</h5>
@@ -45,7 +45,7 @@ function templateManager(manager){
 }
 
 function templateEngineer(engineer){
-    fs.appendFile("index.html", `<div class="col">
+    fs.appendFile("./dist/index.html", `<div class="col">
   <div class="card m-2" style="width: 18rem;">
       <h5 class="card-title">${engineer.getName()}</h5>
       <h6 class="card-subtitle mb-2 text-muted"> ${engineer.getRole()} </h6>
@@ -62,7 +62,7 @@ function templateEngineer(engineer){
 }
 
 function templateIntern(intern){
-    fs.appendFile("index.html", `<div class="col">
+    fs.appendFile("./dist/index.html", `<div class="col">
   <div class="card m-2" style="width: 18rem;">
       <h5 class="card-title">${intern.getName()}</h5>
       <h6 class="card-subtitle mb-2 text-muted"> ${intern.getRole()} </h6>
@@ -79,7 +79,7 @@ function templateIntern(intern){
 }
 
 function templateEnd(){
-    fs.appendFile("index.html", `</div>
+    fs.appendFile("./dist/index.html", `</div>
     </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>

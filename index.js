@@ -74,7 +74,6 @@ function createEngineer() {
       .then((answers) => {
           const engineer = new Engineer(answers.name, answers.empID, answers.email, answers.gitHub);
 
-
           temp.templateEngineer(engineer);
           console.log("\nJob Saved \n");
           jobRole();
