@@ -67,7 +67,7 @@ function createEngineer() {
         },
         {
             type: "input",
-            message: "Engineer GitHub?",
+            message: "Engineer GitHub Username?",
             name: "gitHub",
           }
       ])
