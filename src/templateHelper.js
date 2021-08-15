@@ -13,7 +13,7 @@ function templateStart(){
         <title>My Team</title>
     </head>
     <body>
-        <header class="d-flex justify-content-center"> 
+        <header class="d-flex justify-content-center bg-primary"> 
             <h1 > My Team </h1> 
         </header>`,
         function(err) {
@@ -23,15 +23,18 @@ function templateStart(){
 
 function templateManager(manager){
     fs.appendFile("./dist/index.html",
-    `<div class="d-flex justify-content-center container manager"> 
-        <div class="card m-2" style="width: 36rem;">
-            <h5 class="card-title"> ${manager.getName()}</h5>
-            <h6 class="card-subtitle mb-2 text-muted"> ${manager.getRole()} </h6>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"> ${manager.getId()} </li>
-                <li class="list-group-item"><a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                <li class="list-group-item"> ${manager.getOfficeNumber()} </li>
-            </ul>
+    `
+        <div class="d-flex justify-content-center container manager"> 
+            <div class="card m-2 shadow-sm p-3 mb-5 bg-white rounded" style="width: 36rem;">
+                <div class= "bg-primary rounded">
+                    <h5 class="card-title"> Name: ${manager.getName()}</h5>
+                   <h6 class="card-subtitle mb-2 text-muted"> Role: ${manager.getRole()} </h6>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> ID: ${manager.getId()} </li>
+                    <li class="list-group-item"> Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                    <li class="list-group-item"> Office Number: ${manager.getOfficeNumber()} </li>
+                </ul>
         </div>
     </div>
 
@@ -45,15 +48,19 @@ function templateManager(manager){
 
 function templateEngineer(engineer){
     fs.appendFile("./dist/index.html", 
-    `   <div class="col">
-            <div class="card m-2" style="width: 18rem;">
-                <h5 class="card-title">${engineer.getName()}</h5>
-                <h6 class="card-subtitle mb-2 text-muted"> ${engineer.getRole()} </h6>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"> ${engineer.getId()} </li>
-                    <li class="list-group-item"> <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a> </li>
-                    <li class="list-group-item"> <a href="https://github.com/${engineer.getGitHub()}"</a> ${engineer.getGitHub()} </li>
-                </ul>
+    `   
+        <div class="col">
+            <div class="card m-2 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
+                <div class = "bg-primary rounded">
+                    <h5 class="card-title"> Name: ${engineer.getName()}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"> Role: ${engineer.getRole()} </h6>
+                </div>   
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item"> ID: ${engineer.getId()} </li>
+                        <li class="list-group-item"> Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a> </li>
+                        <li class="list-group-item"> GitHub: <a href="https://github.com/${engineer.getGitHub()}">${engineer.getGitHub()}</a></li>
+                    </ul>
             </div>
         </div>`,
     function(err) {
@@ -64,13 +71,15 @@ function templateEngineer(engineer){
 function templateIntern(intern){
     fs.appendFile("./dist/index.html", 
     `   <div class="col">
-            <div class="card m-2" style="width: 18rem;">
-                <h5 class="card-title">${intern.getName()}</h5>
-                <h6 class="card-subtitle mb-2 text-muted"> ${intern.getRole()} </h6>
+            <div class="card m-2 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
+                <div class= "bg-primary rounded">
+                    <h5 class="card-title "> Name: ${intern.getName()}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"> Role: ${intern.getRole()} </h6>
+                </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"> ${intern.getId()} </li>
-                    <li class="list-group-item"> <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a> </li>
-                    <li class="list-group-item"> ${intern.getSchool()} </li>
+                    <li class="list-group-item"> ID: ${intern.getId()} </li>
+                    <li class="list-group-item"> Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a> </li>
+                    <li class="list-group-item"> School: ${intern.getSchool()} </li>
                 </ul>
             </div>
         </div>`,
