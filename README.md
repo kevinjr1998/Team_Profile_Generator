@@ -23,7 +23,3 @@ To run tests, type `npm run test` into the command ine
 ## Link to Generated Webpage
 
 [Link](./dist/index.html)
-
-## Link to Repo
-
-[Link](https://github.com/kevinjr1998/Team_Profile_Generator)
