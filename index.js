@@ -5,25 +5,6 @@ const Intern = require("./classes/Intern");
 const temp = require("./src/templateHelper.js");
 const inquirer = require("Inquirer");
 
-
-// const managerQuestions = [
-//   {
-//     type: "input",
-//     message: "Name of Manger?",
-//     name: "managerName",
-//   },
-//   {
-//     type: "input",
-//     message: "Manager ID?",
-//     name: "managerID",
-//   },
-//   {
-//     type: "input",
-//     message: "Manger Email?",
-//     name: "managerEmail",
-//   },
-// ];
-
 function jobRole() {
   inquirer
     .prompt({

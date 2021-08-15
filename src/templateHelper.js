@@ -26,7 +26,7 @@ function templateManager(manager){
     `
         <div class="d-flex justify-content-center container manager"> 
             <div class="card m-2 shadow-sm p-3 mb-5 bg-white rounded" style="width: 36rem;">
-                <div class= "bg-primary rounded">
+                <div class= " rounded">
                     <h5 class="card-title"> Name: ${manager.getName()}</h5>
                    <h6 class="card-subtitle mb-2 text-muted"> Role: ${manager.getRole()} </h6>
                 </div>
@@ -51,7 +51,7 @@ function templateEngineer(engineer){
     `   
         <div class="col">
             <div class="card m-2 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
-                <div class = "bg-primary rounded">
+                <div class = " rounded">
                     <h5 class="card-title"> Name: ${engineer.getName()}</h5>
                     <h6 class="card-subtitle mb-2 text-muted"> Role: ${engineer.getRole()} </h6>
                 </div>   
@@ -72,7 +72,7 @@ function templateIntern(intern){
     fs.appendFile("./dist/index.html", 
     `   <div class="col">
             <div class="card m-2 shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
-                <div class= "bg-primary rounded">
+                <div class= " rounded">
                     <h5 class="card-title "> Name: ${intern.getName()}</h5>
                     <h6 class="card-subtitle mb-2 text-muted"> Role: ${intern.getRole()} </h6>
                 </div>
